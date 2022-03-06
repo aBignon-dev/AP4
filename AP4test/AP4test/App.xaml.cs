@@ -1,5 +1,4 @@
-﻿using AP4test.Services;
-using AP4test.Views;
+﻿
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,8 +11,6 @@ namespace AP4test
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 
