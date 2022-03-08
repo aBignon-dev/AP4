@@ -68,6 +68,12 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\accueil_Connecter.jpg" />
+    <AndroidResource Include="Resources\drawable\Back.PNG" />
+    <AndroidResource Include="Resources\drawable\document_icone.jpg" />
+    <AndroidResource Include="Resources\drawable\hamburger_icone.png" />
+    <AndroidResource Include="Resources\drawable\profil_icone.png" />
+    <AndroidResource Include="Resources\drawable\quitterAppli.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />

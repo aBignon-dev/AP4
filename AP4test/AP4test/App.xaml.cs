@@ -1,5 +1,6 @@
 ﻿
 using System;
+using AP4test.Views.AccueilDeconnecter.Accueil;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace AP4test
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            MainPage = new AccueilDeconnecterView();
         }
 
         protected override void OnStart()

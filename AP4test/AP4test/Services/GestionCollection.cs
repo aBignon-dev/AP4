@@ -2,36 +2,33 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
-using System.Text;
 
-namespace XamarinApi2020001.Services
+namespace AP4test.Services
 {
-    class GestionCollection
+    public static class GestionCollection
     {
-        public static ObservableCollection<T> GetListes<T>(List<T> paramList)
+        public static ObservableCollection<T> GetLists<T>(List<T> paramList)
         {
-            ObservableCollection<T> resultat = new ObservableCollection<T>();
+            var result = new ObservableCollection<T>();
 
             foreach (T leParam in paramList)
             {
-                resultat.Add(leParam);
+                result.Add(leParam);
             }
 
-            return resultat;
+            return result;
         }
         public static T GetObjet<T>(List<T> param, int param2)
 
         {
-            T result = default(T);
+            var result = default(T);
             foreach (T unparam in param)
             {
                 PropertyInfo x = (unparam.GetType().GetProperty("id"));
-                int nbi = Convert.ToInt32(x.GetValue(unparam));
-                if (nbi == Convert.ToInt32(param2))
-                {
-                    result = unparam;
-                    break;
-                }
+                var nbi = Convert.ToInt32(x.GetValue(unparam));
+                if (nbi != Convert.ToInt32(param2)) continue;
+                result = unparam;
+                break;
             }
             return result;
         }

@@ -1,18 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Reflection;
-using AP4test.Config;
 using System.Text;
 using System.Threading.Tasks;
+using AP4test.Config;
+using Newtonsoft.Json;
 
-namespace XamarinApi2020001.Services
+namespace AP4test.Services
 {
-    class Api
+    internal class Api
     {
-        public static HttpClient clientHttp = new HttpClient();
+        private static readonly HttpClient ClientHttp = new HttpClient();
         /// <summary>
         /// Cette methode est générique
         /// Cette méthode permet de recuperer la liste de toutes les occurences de la table.
@@ -30,9 +29,9 @@ namespace XamarinApi2020001.Services
         {
             try
             {
-                var json = await clientHttp.GetStringAsync(ApiConfig.BaseApiAddress + paramUrl);
+                var json = await ClientHttp.GetStringAsync(ApiConfig.BaseApiAddress + paramUrl);
                 JsonConvert.DeserializeObject<List<T>>(json);    
-                return GestionCollection.GetListes<T>(param);
+                return GestionCollection.GetLists<T>(param);
             }
             catch (Exception ex)
             {
@@ -43,12 +42,12 @@ namespace XamarinApi2020001.Services
         {
 
             var jsonstring = JsonConvert.SerializeObject(param);
-            int nID;
             try
             {
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
-                var response = await clientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
+                int nID;
                 return int.TryParse(content, out nID) ? nID : 0;
             }
             catch (Exception ex)
@@ -63,10 +62,10 @@ namespace XamarinApi2020001.Services
                 var jsonstring = JsonConvert.SerializeObject(param2);
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
 
-                var response = await clientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
                 var json = await response.Content.ReadAsStringAsync();
                 JsonConvert.DeserializeObject<List<T>>(json);
-                return GestionCollection.GetListes<T>(param);
+                return GestionCollection.GetLists<T>(param);
             }
             catch (Exception ex)
             {

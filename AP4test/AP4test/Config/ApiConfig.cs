@@ -9,19 +9,25 @@ namespace AP4test.Config
         public static string
             BaseApiAddress = "http://172.17.0.61:8000/api/",
         #region Enchere
-            get_encheres = "getEncheres",
-            get_encheres_by_id = "getEncheres/%idEnchere%",
-            getGagnant = "getGagnant/%idEnchere%",
-            getEncheresParticipes = "getEncheresParticipes/%idUser%",
-            getEncheresEnCours = "getEncheresEnCours",
+        GetEnchere = "getEnchere",
+        GetGagnant = "getGagnant",
+        GetEnchereParticipes = "getEncheresParticipes",
+        GetEncheresEnCours = "getEncheresEnCours",
+        #endregion
+        #region Encherir
+        GetActualPrice = "getActualprice",
+        GetLastSixOffer = "getLastSixOffer",
         #endregion
         #region Magasin
         #endregion
         #region Produit
-        get_produits = "getProduits",
+        GetProduit = "getProduit",
+        PostProduit = "postProduit",
         #endregion
         #region Users
-        get_users = "getUser"
+        GetUser = "getUserByMailAndPass",
+        PostUser = "postUser"
+
         #endregion
             ;
     }

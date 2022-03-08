@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Enchere2022.Modeles
+namespace AP4test.Models
 {
     class Produit
     {
         #region Attributs
 
         public static List<Produit> CollClasse = new List<Produit>();
-
-        private int _id;
-        private string _nom;
-        private string _photo;
-        private float _prixreel;
 
         #endregion
 
@@ -27,17 +20,20 @@ namespace Enchere2022.Modeles
             Id = id;
             Nom = nom;
             Produit.CollClasse.Add(this);
-            _photo = photo;
-            _prixreel = prixreel;
+            Photo = photo;
+            Prixreel = prixreel;
         }
 
         #endregion
 
         #region Getters/Setters
-        public int Id { get => _id; set => _id = value; }
-        public string Nom { get => _nom; set => _nom = value; }
-        public string Photo { get => _photo; set => _photo = value; }
-        public float Prixreel { get => _prixreel; set => _prixreel = value; }
+        public int Id { get; set; }
+
+        public string Nom { get; set; }
+
+        public string Photo { get; set; }
+
+        public float Prixreel { get; set; }
 
         #endregion
 

@@ -12,7 +12,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\AccueilConnecter" />
+    <Folder Include="ViewModels\AccueilInviter" />
+    <Folder Include="ViewModels\EnchereSample" />
+    <Folder Include="ViewModels\NavBar" />
     <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\AccueilDeconnecterView\AcceuilDeconnecterView.xaml.cs">
+      <DependentUpon>AcceuilDeconnecterView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccueilInviter\Accueil\AccueilInviterView.xaml.cs">
+      <DependentUpon>AccueilInviterView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NavBar\ConnecterShell.xaml.cs">
+      <DependentUpon>ConnecterShell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
