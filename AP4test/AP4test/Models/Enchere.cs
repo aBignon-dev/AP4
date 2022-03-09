@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AP4test.Models
 {
-    class Enchere
+    public class Enchere
     {
         #region Attributs
 
@@ -13,34 +13,31 @@ namespace AP4test.Models
 
         #region Constructeurs
 
-        public Enchere(int id, DateTime dateDebut, DateTime dateFin, float prixreserve, int typeEnchereId, int produitId)
+        public Enchere(int id,DateTime dateDebut, DateTime dateFin, float prixreserve, int typeEnchereId, int produitId,TypeEnchere typeEnchere, Produit produit)
         {
             Id = id;
             DateDebut = dateDebut;
             DateFin = dateFin;
             Prixreserve = prixreserve;
-            TypeEnchereId = typeEnchereId;
-            ProduitId = produitId;
-            Enchere.CollClasse.Add(this);
-
+            TypeEnchere = typeEnchere;
+            Produit = produit;
+            CollClasse.Add(this);
         }
-
-
 
         #endregion
 
         #region Getters/Setters
-        public int Id { get; set; }
 
+        public int Id { get; set; }
         public DateTime DateDebut { get; set; }
 
         public DateTime DateFin { get; set; }
 
         public float Prixreserve { get; set; }
 
-        public int TypeEnchereId { get; set; }
+        public TypeEnchere TypeEnchere { get; set; }
 
-        public int ProduitId { get; set; }
+        public Produit Produit { get; set; }
 
         #endregion
 

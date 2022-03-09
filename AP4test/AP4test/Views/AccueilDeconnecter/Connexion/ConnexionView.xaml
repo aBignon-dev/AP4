@@ -2,12 +2,46 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AP4test.ViewModels.AccueilDeconnecter.Connexion;assembly=AP4test"
              x:Class="AP4test.Views.AccueilDeconnecter.Connexion.ConnexionView">
+    <ContentPage.BindingContext>
+        <local:ConnexionViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RelativeLayout>
+            <ImageButton Source="Back.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="End"
+                         VerticalOptions="Start" Margin="25" Command="{Binding CommandRetour}" />
+            <Label
+                TextColor="MediumBlue"
+                FontSize="Large"
+                Text="Connexion"
+                RelativeLayout.XConstraint="140"
+                RelativeLayout.YConstraint="30">
+            </Label>
+
+
+            <Entry
+                Text="{Binding Mail}"
+                Placeholder="Email"
+                RelativeLayout.XConstraint="120"
+                RelativeLayout.YConstraint="175"
+                RelativeLayout.WidthConstraint="140" />
+            <Entry
+                Text="{Binding Pass}"
+                Placeholder="Mot de passe"
+                RelativeLayout.XConstraint="120"
+                RelativeLayout.YConstraint="250"
+                RelativeLayout.WidthConstraint="140"
+                IsPassword="True" />
+
+
+            <Button Text="Connexion"
+                    Command="{Binding CommandConnexion}"
+                    RelativeLayout.XConstraint="120"
+                    RelativeLayout.YConstraint="400"
+                    RelativeLayout.WidthConstraint="145"
+                    BackgroundColor="LightSkyBlue"
+                    TextColor="White" />
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

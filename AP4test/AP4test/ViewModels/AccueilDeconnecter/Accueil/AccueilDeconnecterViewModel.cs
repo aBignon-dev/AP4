@@ -1,10 +1,10 @@
 ﻿using System.Windows.Input;
-using Xamarin.Forms;
 using AP4test.Views.AccueilDeconnecter.Connexion;
 using AP4test.Views.AccueilDeconnecter.Inscription;
 using AP4test.Views.NavBar;
+using Xamarin.Forms;
 
-namespace AP4test.ViewModels.AccueilDeconnecter
+namespace AP4test.ViewModels.AccueilDeconnecter.Accueil
 {
     public class AccueilDeconnecterViewModel : BaseVueModele
     {

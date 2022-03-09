@@ -2,12 +2,10 @@
 
 namespace AP4test.Models
 {
-    class Produit
+    public class Produit
     {
         #region Attributs
-
-        public static List<Produit> CollClasse = new List<Produit>();
-
+        
         #endregion
 
         #region Constructeurs
@@ -19,7 +17,6 @@ namespace AP4test.Models
 
             Id = id;
             Nom = nom;
-            Produit.CollClasse.Add(this);
             Photo = photo;
             Prixreel = prixreel;
         }

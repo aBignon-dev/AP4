@@ -25,10 +25,11 @@ namespace AP4test.Config
         PostProduit = "postProduit",
         #endregion
         #region Users
-        GetUser = "getUserByMailAndPass",
+        GetUserByMailAndPass = "getUserByMailAndPass",
         PostUser = "postUser"
 
         #endregion
             ;
+        
     }
 }

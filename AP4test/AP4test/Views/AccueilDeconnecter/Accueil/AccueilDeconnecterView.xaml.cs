@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AP4test.ViewModels.AccueilDeconnecter;
+using AP4test.ViewModels.AccueilDeconnecter.Accueil;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

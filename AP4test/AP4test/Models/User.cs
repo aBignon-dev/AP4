@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace AP4test.Models
 {
-    class User
+    public class User
     {
         #region Attributs
-
-        public static List<User> CollClasse = new List<User>();
-
+        
         #endregion
 
         #region Constructeurs
 
-        public User(string email, string password, string pseudo, string photo)
+        public User(int id,string pseudo, string photo, string password, string email)
         {
-            User.CollClasse.Add(this);
+            Id = id;
             Email = email;
             Password = password;
             Pseudo = pseudo;
@@ -24,12 +23,16 @@ namespace AP4test.Models
         #endregion
 
         #region Getters/Setters
+
+        [JsonProperty("id")]
+        public int Id{ get; set; }
+        [JsonProperty("email")]
         public string Email { get; set; }
-
+        [JsonProperty("password")]
         public string Password { get; set; }
-
+        [JsonProperty("pseudo")]
         public string Pseudo { get; set; }
-
+        [JsonProperty("photo")]
         public string Photo { get; set; }
 
         #endregion
