@@ -2,7 +2,7 @@
 using System;
 namespace AP4test.Config
 {
-    public class DatabaseConfig
+    public static class DatabaseConfig
     {
         public const string DatabaseFilename = "Doctolibtest.db2";
 

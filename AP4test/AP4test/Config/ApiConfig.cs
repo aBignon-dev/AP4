@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AP4test.Config
 {
-    public class ApiConfig
+    public static class ApiConfig
     {
         public static string
             BaseApiAddress = "http://172.17.0.61:8000/api/",

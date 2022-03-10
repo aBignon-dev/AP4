@@ -19,13 +19,6 @@
                 RelativeLayout.YConstraint="30">
             </Label>
 
-
-            <Entry
-                Text="{Binding Mail}"
-                Placeholder="Email"
-                RelativeLayout.XConstraint="120"
-                RelativeLayout.YConstraint="175"
-                RelativeLayout.WidthConstraint="140" />
             <Entry
                 Text="{Binding Pass}"
                 Placeholder="Mot de passe"
@@ -33,6 +26,13 @@
                 RelativeLayout.YConstraint="250"
                 RelativeLayout.WidthConstraint="140"
                 IsPassword="True" />
+            <Entry
+                Text="{Binding Mail}"
+                Placeholder="Email"
+                RelativeLayout.XConstraint="120"
+                RelativeLayout.YConstraint="175"
+                RelativeLayout.WidthConstraint="140" />
+
 
 
             <Button Text="Connexion"

@@ -2,12 +2,55 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AP4test.ViewModels.AccueilDeconnecter.Inscription;assembly=AP4test"
              x:Class="AP4test.Views.AccueilDeconnecter.Inscription.InscriptionView">
+  <ContentPage.BindingContext>
+    <local:InscriptionViewModel />
+  </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+      <RelativeLayout>
+                <ImageButton Source="Back.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="End" VerticalOptions="Start" Margin="25" Command="{Binding CommandRetour}"/>
+                <Label
+                TextColor="MediumBlue"
+                FontSize="Large"
+                Text="Inscription"
+                RelativeLayout.XConstraint="140"
+                RelativeLayout.YConstraint="30" >
+                </Label>
+                <Entry
+                  Text="{Binding Pseudo  }"
+                  RelativeLayout.XConstraint="120"
+                  RelativeLayout.YConstraint="160"
+                  RelativeLayout.WidthConstraint="125"
+                  Placeholder="Pseudo" />
+                <Entry
+                  Text="{Binding Pass  }"
+                  RelativeLayout.XConstraint="120"
+                  RelativeLayout.YConstraint="220"
+                  RelativeLayout.WidthConstraint="125"
+                  Placeholder="Mot de passe"
+                  IsPassword="True"/>
+                <Entry
+                  Text="{Binding Mail}"
+                  RelativeLayout.XConstraint="120"
+                  RelativeLayout.YConstraint="280"
+                  RelativeLayout.WidthConstraint="125"
+                  Placeholder="Email"/>
+                <Entry
+                  Text="{Binding Photo}"
+                  RelativeLayout.XConstraint="120"
+                  RelativeLayout.YConstraint="340"
+                  RelativeLayout.WidthConstraint="125"
+                  Placeholder="Photo"/>
+                
+
+            <Button Text="Confirmer"
+                    Command="{Binding CommandInscription}"
+                    RelativeLayout.XConstraint="110"
+               RelativeLayout.YConstraint="600" 
+               RelativeLayout.WidthConstraint="145"
+               BackgroundColor="LightSkyBlue"
+               TextColor="White"/>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\AccueilConnecter" />
+    <Folder Include="ViewModels\AccueilConnecter\Config" />
     <Folder Include="ViewModels\AccueilInviter" />
     <Folder Include="ViewModels\EnchereSample" />
     <Folder Include="ViewModels\NavBar" />

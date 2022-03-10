@@ -10,29 +10,26 @@ namespace AP4test.Models
         #endregion
 
         #region Constructeurs
-
-        public User(int id,string pseudo, string photo, string password, string email)
+        /// <summary>
+        /// Constructeur d'un User avec le PostUser 
+        /// </summary>
+        /// <param name="pseudo"></param>
+        /// <param name="photo"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        public User(string pseudo, string photo, string password, string email)
         {
-            Id = id;
             Email = email;
             Password = password;
             Pseudo = pseudo;
             Photo = photo;
         }
-
         #endregion
 
         #region Getters/Setters
-
-        [JsonProperty("id")]
-        public int Id{ get; set; }
-        [JsonProperty("email")]
         public string Email { get; set; }
-        [JsonProperty("password")]
         public string Password { get; set; }
-        [JsonProperty("pseudo")]
         public string Pseudo { get; set; }
-        [JsonProperty("photo")]
         public string Photo { get; set; }
 
         #endregion

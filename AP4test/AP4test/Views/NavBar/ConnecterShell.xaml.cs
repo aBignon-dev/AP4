@@ -1,11 +1,12 @@
 using System;
+using AP4test.Models;
 using Xamarin.Forms;
 
 namespace AP4test.Views.NavBar
 {
     public partial class ConnecterShell : Shell
     {
-        public ConnecterShell()
+        public ConnecterShell(User user)
         {
             InitializeComponent();
         }
