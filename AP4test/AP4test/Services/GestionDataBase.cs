@@ -89,6 +89,11 @@ namespace Doctolibtest.Services
         {
             return Database.DeleteAsync(item);
         }
+
+        public Task<int> DeleteAllAsync<T>()
+        {
+            return Database.DeleteAllAsync<T>();
+        }
         public Task UpdateRelation<T>(T item)
         {
             return Database.UpdateWithChildrenAsync(item);

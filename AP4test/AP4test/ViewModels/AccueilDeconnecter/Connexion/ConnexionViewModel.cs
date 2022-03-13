@@ -71,7 +71,10 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Connexion
                 await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleConnexion,
                     AccueilDeconnecterConfig.ErrorApi, AccueilDeconnecterConfig.AlertCancel);
             else
-                Application.Current.MainPage = new ConnecterShell(user);
+            {
+                await User.AjoutItemSqlite(user);
+                Application.Current.MainPage = new ConnecterShell();
+            }
         }
 
         public async Task<User> GetUserByMdpAndMail(Dictionary<string, object> param)

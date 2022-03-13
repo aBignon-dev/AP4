@@ -95,7 +95,8 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 User user = new User(Pseudo, Photo, Pass, Mail);
                 if (await PostUser(user) != 0)
                 {
-                    Application.Current.MainPage = new ConnecterShell(user);
+                    await User.AjoutItemSqlite(user);
+                    Application.Current.MainPage = new ConnecterShell();
                     AlertMessage = AccueilDeconnecterConfig.ErrorApi;
                 }
             }

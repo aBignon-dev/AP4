@@ -4,7 +4,7 @@ namespace AP4test.Config
 {
     public static class DatabaseConfig
     {
-        public const string DatabaseFilename = "Doctolibtest.db2";
+        public const string DatabaseFilename = "AP4.db1";
 
         public const SQLite.SQLiteOpenFlags Flags =
             SQLite.SQLiteOpenFlags.ReadWrite |

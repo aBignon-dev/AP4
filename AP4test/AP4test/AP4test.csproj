@@ -18,7 +18,6 @@
     <Folder Include="ViewModels\AccueilConnecter\Config" />
     <Folder Include="ViewModels\AccueilInviter" />
     <Folder Include="ViewModels\EnchereSample" />
-    <Folder Include="ViewModels\NavBar" />
     <Folder Include="Views\" />
   </ItemGroup>
 
@@ -31,8 +30,8 @@
       <DependentUpon>AccueilInviterView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\NavBar\ConnecterShell.xaml.cs">
-      <DependentUpon>ConnecterShell.xaml</DependentUpon>
+    <Compile Update="ViewModels\AccueilInviter\NavBar\InviterShell.xaml.cs">
+      <DependentUpon>InviterShell.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -83,7 +83,7 @@
         <ShellContent Route="Accueil" ContentTemplate="{DataTemplate accueil:AccueilInviterView}" />
     </FlyoutItem>
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem IconImageSource="quitterAppli.png" Text="Quitter l'appli" StyleClass="MenuItemLayoutStyle" Clicked="DeconnexionClickedAsync">
+    <MenuItem IconImageSource="quitterAppli.png" Text="Deconnexion" StyleClass="MenuItemLayoutStyle" Clicked="DeconnexionClickedAsync">
     </MenuItem>
 
     <!--
