@@ -28,6 +28,12 @@ namespace AP4test.Models
             Pseudo = pseudo;
             Photo = photo;
         }
+
+        public User()
+        {
+            
+        }
+
         #endregion
 
         #region Getters/Setters

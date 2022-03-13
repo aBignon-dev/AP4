@@ -1,6 +1,11 @@
 ﻿
 using System;
+using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using AP4test.Models;
 using AP4test.Views.AccueilDeconnecter.Accueil;
+using AP4test.Views.NavBar;
 using Doctolibtest.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,10 +15,20 @@ namespace AP4test
     public partial class App : Application
     {
         private static GestionDataBase _database;
-        public App()
+        public ObservableCollection<User> Users = Database.GetItemsAsync<User>();
+        public  App()
         {
             InitializeComponent();
-            MainPage = new AccueilDeconnecterView();
+            AccueilSelector(Users.Count);
+                
+        }
+
+        public void AccueilSelector(int connected)
+        {
+            if (connected ==0)
+                MainPage = new AccueilDeconnecterView();
+            else
+                MainPage = new ConnecterShell();
         }
 
         protected override void OnStart()
