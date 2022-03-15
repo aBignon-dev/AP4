@@ -1,14 +1,15 @@
 using System;
-using System.Threading.Tasks;
 using AP4test.Models;
+using AP4test.Views.EnchereSample.ListEnchere;
 using Xamarin.Forms;
 
-namespace AP4test.Views.NavBar
+namespace AP4test.Views.AccueilConnecter.NavBar
 {
     public partial class ConnecterShell : Shell
     {
         public ConnecterShell()
         {
+            Routing.RegisterRoute(nameof(ListEnchereSampleView),typeof(ListEnchereSampleView));
             InitializeComponent();
         }
         /// <summary>

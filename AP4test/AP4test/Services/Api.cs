@@ -14,26 +14,30 @@ namespace AP4test.Services
     {
         private static HttpClient ClientHttp = new HttpClient();
 
-        /// <summary>
-        /// Cette methode est générique
-        /// Cette méthode permet de recuperer la liste de toutes les occurences de la table.
-        /// 
-        /// </summary>
-        /// <typeparam name="T">la classe concernée</typeparam>
-        /// <param name="paramUrl">l'adresse de l'API</param>
-        /// <param name="param">la collection de classe concernee</param>
-        /// public async void GetListe()
-        ///{
-        ///MaListeClients = await _apiServices.GetAllAsync<Client>("clients", Client.CollClasse);
-        ///}
-        /// <returns>la liste des occurences</returns>
-        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> param)
+        ///  <summary>
+        ///  Cette methode est générique
+        ///  Cette méthode permet de recuperer la liste de toutes les occurences de la table.
+        ///  
+        ///  </summary>
+        ///  <typeparam name="T">la classe concernée</typeparam>
+        ///  <param name="paramUrl">l'adresse de l'API</param>
+        ///  <param name="collectionReturn">la collection de classe concernee</param>
+        /// <param name="parameters">Dictionnary with Key = param name  and Value = param value</param>
+        ///  public async void GetListe()
+        /// {
+        /// MaListeClients = await _apiServices.GetAllAsync<Client>("clients", Client.CollClasse);
+        /// }
+        ///  <returns>la liste des occurences</returns>
+        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn,Dictionary<string, object> parameters)
         {
             try
             {
-                var json = await ClientHttp.GetStringAsync(ApiConfig.BaseApiAddress + paramUrl);
+                JObject getResult = JObject.Parse(GetJsonString(parameters));
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
                 JsonConvert.DeserializeObject<List<T>>(json);
-                return GestionCollection.GetLists<T>(param);
+                return GestionCollection.GetLists<T>(collectionReturn);
             }
             catch (Exception)
             {
@@ -43,9 +47,9 @@ namespace AP4test.Services
 
         public async Task<int> PostAsync<T>(T param, string paramUrl)
         {
-            var jsonstring = JsonConvert.SerializeObject(param);
             try
             {
+                var jsonstring = JsonConvert.SerializeObject(param);
                 var jsonContent = new StringContent(jsonstring, Encoding.UTF8, "application/json");
                 var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
@@ -68,8 +72,8 @@ namespace AP4test.Services
         public async Task<T> GetOneAsync<T>(string paramUrl, Dictionary<string, object> parameters)
         {
             try
-            {
-            JObject getResult = JObject.Parse(GetJsonString(parameters));
+            { 
+                JObject getResult = JObject.Parse(GetJsonString(parameters));
             var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
             var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
             var json = await response.Content.ReadAsStringAsync();

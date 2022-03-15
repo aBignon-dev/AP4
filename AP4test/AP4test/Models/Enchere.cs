@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 namespace AP4test.Models
 {
@@ -7,21 +9,22 @@ namespace AP4test.Models
     {
         #region Attributs
 
-        public static readonly List<Enchere> CollClasse = new List<Enchere>();
+        public static readonly List<Enchere> CollEnchere = new List<Enchere>();
 
         #endregion
 
         #region Constructeurs
 
-        public Enchere(int id,DateTime dateDebut, DateTime dateFin, float prixreserve, int typeEnchereId, int produitId,TypeEnchere typeEnchere, Produit produit)
+        public Enchere(int id,DateTime dateDebut, DateTime dateFin, float prixreserve,bool visibilite,TypeEnchere typeEnchere, Produit produit)
         {
             Id = id;
             DateDebut = dateDebut;
             DateFin = dateFin;
+            Visibilite = visibilite;
             Prixreserve = prixreserve;
             TypeEnchere = typeEnchere;
             Produit = produit;
-            CollClasse.Add(this);
+            CollEnchere.Add(this);
         }
 
         #endregion
@@ -33,12 +36,51 @@ namespace AP4test.Models
 
         public DateTime DateFin { get; set; }
 
+        public bool Visibilite { get; set; }
         public float Prixreserve { get; set; }
 
-        public TypeEnchere TypeEnchere { get; set; }
 
+        public string PrixreserveRead
+        {
+            get
+            {
+                if(!Visibilite)
+                   return "Secret";
+                return  Prixreserve.ToString() +" €";
+            }
+            set
+            {
+                PrixreserveRead = value;
+            } 
+        }
+
+        [JsonProperty("letypeenchere")]
+        public TypeEnchere TypeEnchere { get; set; }
+        
+        [JsonProperty("leproduit")]
         public Produit Produit { get; set; }
 
+        public string NomRead
+        {
+            get
+            {
+                if (TypeEnchere.Id=="3")
+                    return "Secret";
+                return Produit.Nom;
+            }
+            set { NomRead = value; }
+        }
+
+        public string PhotoRead
+        {
+            get
+            {
+                if (TypeEnchere.Id=="3")
+                    return "https://fr.shopping.rakuten.com/photo/boite-mystere-1229904330_ML.jpg";
+                return Produit.Photo;
+            }
+            set { PhotoRead = value; }
+        }
         #endregion
 
         #region Methodes

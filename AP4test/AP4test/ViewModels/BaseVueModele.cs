@@ -23,7 +23,7 @@ namespace AP4test.ViewModels
             set => SetProperty(ref _title, value);
         }
 
-        private bool SetProperty<T>(ref T backingStore, T value,
+        protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
         {

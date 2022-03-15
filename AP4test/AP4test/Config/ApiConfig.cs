@@ -9,7 +9,8 @@ namespace AP4test.Config
         public static string
             BaseApiAddress = "http://172.17.0.61:8000/api/",
         #region Enchere
-        GetEnchere = "getEnchere",
+        GetEnchere = "getEnchere", 
+        GetEnchere_type = "IdTypeEnchere",
         GetGagnant = "getGagnant",
         GetEnchereParticipes = "getEncheresParticipes",
         GetEncheresEnCours = "getEncheresEnCours",

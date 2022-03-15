@@ -6,6 +6,7 @@ using AP4test.Config;
 using AP4test.Models;
 using AP4test.Services;
 using AP4test.ViewModels.AccueilDeconnecter.Config;
+using AP4test.Views.AccueilConnecter.NavBar;
 using AP4test.Views.AccueilDeconnecter.Accueil;
 using AP4test.Views.NavBar;
 using Xamarin.Forms;

@@ -2,12 +2,55 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AP4test.Views.EnchereSample.ListEnchere.ListEnchereModelView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="AP4test.Views.EnchereSample.ListEnchere.ListEnchereSampleView"
+             Title="{Binding Title}"
+             xmlns:model="clr-namespace:AP4test.Models;assembly=AP4test"  
+             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.ListEnchere;assembly=AP4test"  
+             x:Name="BrowseEncherePage">
+    <RefreshView x:DataType="local:ListEnchereSampleViewModel" Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                        ItemsSource="{Binding Encheres}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:Enchere">
+                        <Label Text=
+                               "{Binding NomRead,StringFormat='Produit : {0}'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="16" />
+                        <ImageButton
+                            Source="{Binding PhotoRead}"
+                            WidthRequest="200"
+                            HeightRequest="200"
+                        />
+                        <Label Text="{Binding DateDebut,StringFormat='Date debut : {0}'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                        <Label Text="{Binding DateFin.Date,StringFormat='Date fin : {0}'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                               
+                        <Label Text="{Binding PrixreserveRead,StringFormat='Prix de réserve : {0}'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+  
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ListEnchereSampleViewModel}}, Path=ItemTapped}"
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+
 </ContentPage>

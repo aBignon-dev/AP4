@@ -9,7 +9,6 @@
                     AlignItems="Center"
                     JustifyContent="SpaceEvenly">
             <Label FontSize="Large" Text="Accueil"></Label>
-            <Image Source="medecinsSoignants.jpg" />
             <Button Command="{Binding CommandInscription }" Text="Inscription"  BackgroundColor="MediumBlue" TextColor="White"/>
             <Button Command="{Binding CommandConnexion}" Text="Connexion" BackgroundColor="MediumBlue" BorderWidth="1"  TextColor="White" BorderColor="MediumBlue" />
             <Button Command="{Binding CommandInviter}" Text="Inviter" BackgroundColor="MediumBlue" BorderWidth="1"  TextColor="White" BorderColor="MediumBlue" />

@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AP4test.Views.EnchereSample.Enchere
+namespace AP4test.Views.EnchereSample.EnchereSample
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LowerBlockConnectedView : ContentPage
+    public partial class LowerBlockNotConnectedView : ContentPage
     {
-        public LowerBlockConnectedView()
+        public LowerBlockNotConnectedView()
         {
             InitializeComponent();
         }

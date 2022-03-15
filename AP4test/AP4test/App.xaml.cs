@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AP4test.Models;
+using AP4test.Views.AccueilConnecter.NavBar;
 using AP4test.Views.AccueilDeconnecter.Accueil;
 using AP4test.Views.NavBar;
 using Doctolibtest.Services;
@@ -26,9 +27,9 @@ namespace AP4test
         public void AccueilSelector(int connected)
         {
             if (connected ==0)
-                MainPage = new AccueilDeconnecterView();
+                Application.Current.MainPage = new AccueilDeconnecterView();
             else
-                MainPage = new ConnecterShell();
+                Application.Current.MainPage = new ConnecterShell();
         }
 
         protected override void OnStart()

@@ -15,7 +15,7 @@ namespace AP4test.Models
 
         #region Constructeurs
         /// <summary>
-        /// Constructeur d'un User avec le PostUser 
+        /// Constructeur d'un User avec la BDD 
         /// </summary>
         /// <param name="pseudo"></param>
         /// <param name="photo"></param>
@@ -29,6 +29,18 @@ namespace AP4test.Models
             Photo = photo;
         }
 
+        /// <summary>
+        /// Constructeur d'un User avec la BDD 
+        /// </summary>
+        /// <param name="pseudo"></param>
+        /// <param name="password"></param>
+        /// <param name="email"></param>
+        public User(string pseudo, string password, string email)
+        {
+            Email = email;
+            Password = password;
+            Pseudo = pseudo;
+        }
         public User()
         {
             
