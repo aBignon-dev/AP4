@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AP4test.Models;
 
 namespace AP4test.Util
 {
@@ -25,6 +26,15 @@ namespace AP4test.Util
 
             return "1s";
 
+        }
+
+        public static double TimeLeftPercent(Enchere enchereSelected)
+        { 
+            //
+            double percent = (double)(enchereSelected.DateFin.Ticks -DateTime.Now.Ticks) / (enchereSelected.DateFin.Ticks-enchereSelected.DateDebut.Ticks);
+           if (percent < 1)
+               return percent;
+           return 1;
         }
     }
 }

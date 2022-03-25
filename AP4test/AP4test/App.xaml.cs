@@ -8,6 +8,7 @@ using AP4test.Views.AccueilConnecter.NavBar;
 using AP4test.Views.AccueilDeconnecter.Accueil;
 using AP4test.Views.NavBar;
 using Doctolibtest.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -40,8 +41,9 @@ namespace AP4test
         {
         }
 
-        protected override void OnResume()
+        protected override  void OnResume()
         {
+           
         }
         public static GestionDataBase Database
         {

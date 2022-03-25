@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using AP4test.Config;
 using AP4test.Models;
@@ -35,14 +34,14 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
 
         private async void ExecuteLoad()
         {
-            await ExecuteLoadItemsCommand(IdTypeEnchere);
+            await ExecuteLoadEncheresCommand(IdTypeEnchere);
         }
 
 
         public static string IdTypeEnchere
         {
             get => _idTypeEnchere;
-            set { _idTypeEnchere = Uri.UnescapeDataString(value ?? string.Empty); }
+            set => _idTypeEnchere = Uri.UnescapeDataString(value ?? string.Empty);
         }
 
         public void OnAppearing()
@@ -61,7 +60,7 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
             }
         }
 
-        async Task ExecuteLoadItemsCommand(string typeEnchereId)
+        async Task ExecuteLoadEncheresCommand(string typeEnchereId)
         {
             IsBusy = true;
 
@@ -72,7 +71,6 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
                     if (typeEnchere.Id == typeEnchereId)
                         TypeOfEncheres = typeEnchere;
                 }
-
                 Title = ListEnchereSampleLang.Title.Replace("%type%",TypeOfEncheres.Nom);
                 Encheres.Clear();
                 Enchere.CollEnchere.Clear();
@@ -105,7 +103,9 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            // await Shell.Current.GoToAsync($"{nameof(EnchereSampleView)}?{nameof(EnchereSampleViewModel.ItemId)}={enchere.Id}");
+            string route =
+                $"{nameof(EnchereSampleView)}?{nameof(EnchereSampleViewModel.IdEnchere)}={enchere.Id.ToString()}";
+            await Shell.Current.GoToAsync( route);
         }
     }
 }

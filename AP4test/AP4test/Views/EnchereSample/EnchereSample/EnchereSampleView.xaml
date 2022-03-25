@@ -2,12 +2,64 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AP4test.Views.EnchereSample.EnchereSample.EnchereSampleView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+             x:Class="AP4test.Views.EnchereSample.EnchereSample.EnchereSampleView"
+             Title="{Binding Title}"
+             xmlns:model="clr-namespace:AP4test.Models;assembly=AP4test"
+             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.EnchereSample;assembly=AP4test"
+             x:Name="esfezfezf">
+    <RefreshView x:DataType="local:EnchereSampleViewModel" Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <StackLayout Padding="10"  Margin="10">
+            <ProgressBar
+                Progress="{Binding TimeLeftPercent}" />
+            <Image
+                Source="{Binding .EnchereSelected.PhotoRead}"
+                WidthRequest="200"
+                HeightRequest="200" />
+            <Label
+                Text="{Binding EnchereSelected.PrixreserveRead,StringFormat=' Prix réserve : {0}'}" />
+            <Label Text="{Binding ActualPriceText}" />
+            <Label
+                Text="{Binding  Encheris[0].OfferRead}" />
+            <Label
+                Text="{Binding LastOfferText}" />
+            <CollectionView x:Name="ItemsListView"
+                            ItemsSource="{Binding Encheris}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout x:DataType="model:Encherir">
+                            <Label
+                                Text="{Binding .OfferRead}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout x:DataType="local:EnchereSampleViewModel">
+            <Label
+                IsEnabled="{Binding IsInvited }"
+                IsVisible="{Binding IsInvited}"
+                Text="{Binding InformationOfferInvitedText }"/>
+            <Button
+                IsEnabled="{Binding IsInvited }"
+                IsVisible="{Binding IsInvited}"
+                Text="Inscription" Command="{Binding CommandInscription }"/>
+
+                <Label
+                    IsEnabled="{Binding IsConnected }"
+                    IsVisible="{Binding IsConnected}"
+                    Text="{Binding InformationOfferText }"/>
+                <Entry 
+                    IsEnabled="{Binding IsConnected }"
+                    IsVisible="{Binding IsConnected}"
+                    Placeholder="{Binding OfferPlaceholder}"
+                     Text="{Binding TextOffer}"
+                />
+                <Button
+                    IsEnabled="{Binding IsConnected }"
+                    IsVisible="{Binding IsConnected}"
+                    Text="Confirmer"  Command="{Binding CommandOffer }"/>
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </RefreshView>
 </ContentPage>

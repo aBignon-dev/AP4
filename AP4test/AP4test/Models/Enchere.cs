@@ -46,7 +46,7 @@ namespace AP4test.Models
             {
                 if(!Visibilite)
                    return "Secret";
-                return  Prixreserve.ToString() +" €";
+                return  Prixreserve +" €";
             }
             set
             {

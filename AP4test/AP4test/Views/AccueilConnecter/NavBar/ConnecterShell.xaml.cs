@@ -1,5 +1,7 @@
 using System;
 using AP4test.Models;
+using AP4test.Views.AccueilDeconnecter.Inscription;
+using AP4test.Views.EnchereSample.EnchereSample;
 using AP4test.Views.EnchereSample.ListEnchere;
 using Xamarin.Forms;
 
@@ -10,6 +12,8 @@ namespace AP4test.Views.AccueilConnecter.NavBar
         public ConnecterShell()
         {
             Routing.RegisterRoute(nameof(ListEnchereSampleView),typeof(ListEnchereSampleView));
+            Routing.RegisterRoute(nameof(EnchereSampleView),typeof(EnchereSampleView));
+            Routing.RegisterRoute(nameof(InscriptionView),typeof(InscriptionView));
             InitializeComponent();
         }
         /// <summary>

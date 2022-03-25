@@ -16,8 +16,14 @@ namespace AP4test.Config
         GetEncheresEnCours = "getEncheresEnCours",
         #endregion
         #region Encherir
+        PostEncherir ="postEncherir", 
+        PostEncherir_IdUser ="IdUser",
+        PostEncherir_IdEnchere ="IdEnchere",
+        PostEncherir_Coefficient ="Coefficient",
+        PostEncherir_PrixEnchere ="PrixEnchere",
         GetActualPrice = "getActualprice",
-        GetLastSixOffer = "getLastSixOffer",
+        GetLastSixOffer = "getLastSixOffer", 
+        GetLastSixOffer_EnchereID = "Id",
         #endregion
         #region Magasin
         #endregion

@@ -94,15 +94,16 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
             if (AlertMessage==String.Empty)
             {
                 User user = new User(Pseudo, Photo, Pass, Mail);
-                if (await PostUser(user) != 0)
+                user.ID= await PostUser(user);
+                if (user.ID != 0)
                 {
                     await User.AjoutItemSqlite(user);
                     Application.Current.MainPage = new ConnecterShell();
-                    AlertMessage = AccueilDeconnecterConfig.ErrorApi;
                 }
+                AlertMessage = Lang.ErrorApi;
             }
             await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleInscription,
-                AlertMessage, AccueilDeconnecterConfig.AlertCancel);
+                AlertMessage, Lang.AlertCancel);
         }
         /// <summary>
         /// Méthode vérifiant que tout les champs de saisie ont une valeur correct

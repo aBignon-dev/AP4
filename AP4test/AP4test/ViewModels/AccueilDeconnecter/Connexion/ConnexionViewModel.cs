@@ -70,7 +70,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Connexion
             User user = await GetUserByMdpAndMail(param);
             if (user == null)
                 await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleConnexion,
-                    AccueilDeconnecterConfig.ErrorApi, AccueilDeconnecterConfig.AlertCancel);
+                    Lang.ErrorApi, Lang.AlertCancel);
             else
             {
                 await User.AjoutItemSqlite(user);

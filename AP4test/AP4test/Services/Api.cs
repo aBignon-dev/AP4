@@ -44,7 +44,22 @@ namespace AP4test.Services
                 return null;
             }
         }
-
+        public async Task<int> PostAsync(string paramUrl, Dictionary<string, object> parameters)
+        {
+            try
+            {
+                JObject getResult = JObject.Parse(GetJsonString(parameters));
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                var content = await response.Content.ReadAsStringAsync();
+                int nID;
+                return int.TryParse(content, out nID) ? nID : 0;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
         public async Task<int> PostAsync<T>(T param, string paramUrl)
         {
             try

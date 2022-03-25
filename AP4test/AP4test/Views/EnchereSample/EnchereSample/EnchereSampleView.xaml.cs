@@ -7,10 +7,17 @@ namespace AP4test.Views.EnchereSample.EnchereSample
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EnchereSampleView : ContentPage
     {
+        EnchereSampleViewModel _viewModel;
+        
         public EnchereSampleView()
         {
-            BindingContext = new EnchereSampleViewModel();
             InitializeComponent();
+            BindingContext= _viewModel = new EnchereSampleViewModel();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnDisappearing();
+            _viewModel.OnAppearing();
         }
     }
 }

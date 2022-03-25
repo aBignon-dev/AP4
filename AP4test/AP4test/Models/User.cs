@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SQLite;
@@ -54,6 +55,7 @@ namespace AP4test.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Pseudo { get; set; }
+        //TODO Change type of Photo element
         public string Photo { get; set; }
 
         #endregion
@@ -66,6 +68,11 @@ namespace AP4test.Models
         public static async Task AjoutItemSqlite(User param)
         {
             await App.Database.SaveItemAsync(param);
+        }
+
+        public static Task<ObservableCollection<User>> GetAllItemsSqlite()
+        {
+           return Task.FromResult(App.Database.GetItemsAsync<User>());
         }
         #endregion
     }
