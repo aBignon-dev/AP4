@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using AP4test.Util;
 using Newtonsoft.Json;
 
 namespace AP4test.Models
@@ -46,7 +47,7 @@ namespace AP4test.Models
             {
                 if(!Visibilite)
                    return "Secret";
-                return  Prixreserve +" €";
+                return  PrixUtil.FormatOuput(Prixreserve) +" €";
             }
             set
             {
@@ -81,6 +82,10 @@ namespace AP4test.Models
             }
             set { PhotoRead = value; }
         }
+        [JsonProperty("prixdepart")]
+
+        public double PrixDepart { get; set; }
+        
         #endregion
 
         #region Methodes

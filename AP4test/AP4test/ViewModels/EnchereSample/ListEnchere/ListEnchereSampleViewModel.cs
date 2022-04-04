@@ -7,7 +7,9 @@ using AP4test.Config;
 using AP4test.Models;
 using AP4test.Services;
 using AP4test.ViewModels.EnchereSample.Config;
+using AP4test.ViewModels.EnchereSample.EnchereFlash;
 using AP4test.ViewModels.EnchereSample.EnchereSample;
+using AP4test.Views.EnchereSample.EnchereFlash;
 using AP4test.Views.EnchereSample.EnchereSample;
 using Xamarin.Forms;
 
@@ -18,12 +20,20 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
     {
         private readonly Api _apiServices = new Api();
         private Enchere _selectedItem;
-        public ObservableCollection<Enchere> Encheres { get; set; }
+        private ObservableCollection<Enchere> _encheres;
+
+        public ObservableCollection<Enchere> Encheres
+        {
+            get => _encheres;
+            set => SetProperty(ref _encheres, value);
+        }
+
         public Command LoadItemsCommand { get; }
         public Command<Enchere> ItemTapped { get; }
 
         public TypeEnchere TypeOfEncheres { get; set; }
         static string _idTypeEnchere = "";
+
 
         public ListEnchereSampleViewModel()
         {
@@ -71,7 +81,8 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
                     if (typeEnchere.Id == typeEnchereId)
                         TypeOfEncheres = typeEnchere;
                 }
-                Title = ListEnchereSampleLang.Title.Replace("%type%",TypeOfEncheres.Nom);
+
+                Title = ListEnchereSampleLang.Title.Replace("%type%", TypeOfEncheres.Nom);
                 Encheres.Clear();
                 Enchere.CollEnchere.Clear();
                 var encheres = await GetListeEncheresByType(typeEnchereId);
@@ -101,11 +112,15 @@ namespace AP4test.ViewModels.EnchereSample.ListEnchere
         {
             if (enchere == null)
                 return;
+            if (enchere.TypeEnchere.Id == "3")
+            {
+                await Shell.Current.GoToAsync(
+                    $"{nameof(EnchereFlashView)}?{nameof(EnchereFlashViewModel.IdEnchere)}={enchere.Id.ToString()}");
+                return;
+            }
 
-            // This will push the ItemDetailPage onto the navigation stack
-            string route =
-                $"{nameof(EnchereSampleView)}?{nameof(EnchereSampleViewModel.IdEnchere)}={enchere.Id.ToString()}";
-            await Shell.Current.GoToAsync( route);
+            await Shell.Current.GoToAsync(
+                $"{nameof(EnchereSampleView)}?{nameof(EnchereSampleViewModel.IdEnchere)}={enchere.Id.ToString()}");
         }
     }
 }

@@ -14,11 +14,11 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
     {
         #region Attributs
 
-        public string ButtonListFlashText { get; set; }
+        public string ButtonListFlashText { get;}
 
-        public string ButtonListInverserText { get; set; }
+        public string ButtonListInverserText { get;}
 
-        public string ButtonListClassiqueText { get; set; }
+        public string ButtonListClassiqueText { get;}
 
         #endregion
 
@@ -30,6 +30,7 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
             ButtonListClassiqueText = AccueilConnecterLang.ButtonListClassiqueText;
             ButtonListInverserText = AccueilConnecterLang.ButtonListInverserText;
             ButtonListFlashText = AccueilConnecterLang.ButtonListFlashText;
+            TypeEnchere.CollClasse.Clear();
         }
 
 
@@ -39,7 +40,7 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
         #region Getters/Setters
 
         public ICommand CommandListClassique => new Command(() => Disptach(new TypeEnchere("1", "classique")));
-        public ICommand CommandListInverser => new Command(() => Disptach(new TypeEnchere("2", "inverse")));
+        public ICommand CommandListInverser => new Command(() => Disptach(new TypeEnchere("4", "inverse")));
         public ICommand CommandListFlash => new Command(() => Disptach(new TypeEnchere("3", "flash")));
 
         #endregion
@@ -47,10 +48,7 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
         #region Methodes
         async void Disptach(TypeEnchere typeEnchere)
         {
-            //?IdTypeEnchere={typeEnchere.Id.ToString()}
-            //?{nameof(ListEnchereSampleViewModel.IdTypeEnchere)}={typeEnchere.Id}
-            var route = $"ListEnchereSampleView?IdTypeEnchere={typeEnchere.Id}";
-           await Shell.Current.GoToAsync(route);
+            await Shell.Current.GoToAsync($"ListEnchereSampleView?IdTypeEnchere={typeEnchere.Id}");
         }
 
         #endregion

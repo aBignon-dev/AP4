@@ -94,8 +94,8 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
             if (AlertMessage==String.Empty)
             {
                 User user = new User(Pseudo, Photo, Pass, Mail);
-                user.ID= await PostUser(user);
-                if (user.ID != 0)
+                user.IdApi= await PostUser(user);
+                if (user.IdApi != 0)
                 {
                     await User.AjoutItemSqlite(user);
                     Application.Current.MainPage = new ConnecterShell();

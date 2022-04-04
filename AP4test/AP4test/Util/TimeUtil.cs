@@ -15,9 +15,7 @@ namespace AP4test.Util
 
         private static int MillisecondInSecond(double milli)
         {
-
-            return (int)(milli / 1000);
-
+            return (int) (milli / 1000);
         }
 
         public static string TimeInMilliFormat(double milli)
@@ -25,16 +23,21 @@ namespace AP4test.Util
             int second = MillisecondInSecond(milli);
 
             return "1s";
-
         }
 
         public static double TimeLeftPercent(Enchere enchereSelected)
-        { 
+        {
             //
-            double percent = (double)(enchereSelected.DateFin.Ticks -DateTime.Now.Ticks) / (enchereSelected.DateFin.Ticks-enchereSelected.DateDebut.Ticks);
-           if (percent < 1)
-               return percent;
-           return 1;
+            double percent = (double) (enchereSelected.DateFin.Ticks - DateTime.Now.Ticks) /
+                             (enchereSelected.DateFin.Ticks - enchereSelected.DateDebut.Ticks);
+            if (percent < 1)
+                return percent;
+            return 1;
+        }
+
+        public static TimeSpan TimeLeft(Enchere enchereSelected)
+        {
+            return enchereSelected.DateFin - DateTime.Now;
         }
     }
 }

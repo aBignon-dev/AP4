@@ -52,6 +52,9 @@ namespace AP4test.Models
         #region Getters/Setters
         [PrimaryKey, AutoIncrement]
         public int ID { get ; set; }
+        
+        [JsonProperty("id")]
+        public int IdApi{ get ; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Pseudo { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using AP4test.Util;
 using Newtonsoft.Json;
 
 namespace AP4test.Models
@@ -13,7 +14,7 @@ namespace AP4test.Models
 
         #region Constructeurs
 
-        public Encherir(double prixenchere, string pseudoUser)
+        public Encherir(float prixenchere, string pseudoUser)
         {
             PrixEnchere = prixenchere;
             PseudoUser = pseudoUser;
@@ -23,7 +24,7 @@ namespace AP4test.Models
 
         #region Getters/Setters
         [JsonProperty("prixenchere")]
-        public double PrixEnchere { get; set; }
+        public float PrixEnchere { get; set; }
         
         [JsonProperty("pseudo")]
         public string PseudoUser { get; set; }
@@ -43,7 +44,7 @@ namespace AP4test.Models
         {
             get
             {
-                return  PrixEnchere +" €";
+                return PrixUtil.FormatOuput(PrixEnchere) +" €";
             }
             set { PrixEnchereRead = value; }
         }

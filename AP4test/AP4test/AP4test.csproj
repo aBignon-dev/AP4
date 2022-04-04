@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\AccueilInviter" />
-    <Folder Include="ViewModels\EnchereSample\EndEnchere" />
     <Folder Include="Views\" />
   </ItemGroup>
 

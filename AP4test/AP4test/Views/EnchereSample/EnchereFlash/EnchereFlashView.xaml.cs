@@ -1,18 +1,23 @@
-﻿using AP4test.ViewModels.EnchereSample.EnchereSample;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AP4test.ViewModels.EnchereSample.EnchereFlash;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AP4test.Views.EnchereSample.EnchereSample
+namespace AP4test.Views.EnchereSample.EnchereFlash
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EnchereSampleView 
+    public partial class EnchereFlashView
     {
-        EnchereSampleViewModel _viewModel;
-        
-        public EnchereSampleView()
+        EnchereFlashViewModel _viewModel;
+
+        public EnchereFlashView()
         {
             InitializeComponent();
-            BindingContext= _viewModel = new EnchereSampleViewModel();
+            BindingContext= _viewModel = new EnchereFlashViewModel();
         }
         protected override void OnAppearing()
         {

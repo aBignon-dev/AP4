@@ -7,11 +7,12 @@ namespace AP4test.Config
     public static class ApiConfig
     {
         public static string
-            BaseApiAddress = "http://172.17.0.61:8000/api/",
+            BaseApiAddress = "http://80.13.113.244:2081/api/",
         #region Enchere
         GetEnchere = "getEnchere", 
         GetEnchere_type = "IdTypeEnchere",
         GetGagnant = "getGagnant",
+        GetGagnant_EnchereID="Id",    
         GetEnchereParticipes = "getEncheresParticipes",
         GetEncheresEnCours = "getEncheresEnCours",
         #endregion
@@ -33,10 +34,15 @@ namespace AP4test.Config
         #endregion
         #region Users
         GetUserByMailAndPass = "getUserByMailAndPass",
-        PostUser = "postUser"
+        PostUser = "postUser",
 
         #endregion
+
+        #region Error
+
+        ErrorUnknown = "ExceptionUnHandled"
+
+            #endregion
             ;
-        
     }
 }

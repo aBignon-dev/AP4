@@ -5,60 +5,61 @@
              x:Class="AP4test.Views.EnchereSample.EnchereSample.EnchereSampleView"
              Title="{Binding Title}"
              xmlns:model="clr-namespace:AP4test.Models;assembly=AP4test"
-             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.EnchereSample;assembly=AP4test"
-             x:Name="esfezfezf">
+             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.EnchereSample;assembly=AP4test">
     <RefreshView x:DataType="local:EnchereSampleViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <StackLayout Padding="10"  Margin="10">
+        <StackLayout Padding="10" Margin="10">
+            <Label HorizontalOptions="Center" Text="{Binding .TimeRemaining,StringFormat=' Temps restant : {0}'}" />
             <ProgressBar
                 Progress="{Binding TimeLeftPercent}" />
             <Image
                 Source="{Binding .EnchereSelected.PhotoRead}"
                 WidthRequest="200"
                 HeightRequest="200" />
-            <Label
-                Text="{Binding EnchereSelected.PrixreserveRead,StringFormat=' Prix réserve : {0}'}" />
-            <Label Text="{Binding ActualPriceText}" />
-            <Label
-                Text="{Binding  Encheris[0].OfferRead}" />
+            <StackLayout HorizontalOptions="Center">
+                <Label
+                    Text="{Binding EnchereSelected.PrixreserveRead,StringFormat=' Prix réserve : {0}'}" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ActualPriceText}" />
+                    <Label
+                        Text="{Binding  ActualEncherir.OfferRead}" />
+                </StackLayout>
+            </StackLayout>
             <Label
                 Text="{Binding LastOfferText}" />
-            <CollectionView x:Name="ItemsListView"
-                            ItemsSource="{Binding Encheris}"
-                            SelectionMode="None">
+            <CollectionView ItemsSource="{Binding .TwoToSixOffers}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout x:DataType="model:Encherir">
-                            <Label
-                                Text="{Binding .OfferRead}" />
+                            <BoxView VerticalOptions="FillAndExpand" HeightRequest="1" Color="#22A558" />
+                            <Label Text="{Binding .OfferRead}" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <StackLayout x:DataType="local:EnchereSampleViewModel">
-            <Label
-                IsEnabled="{Binding IsInvited }"
-                IsVisible="{Binding IsInvited}"
-                Text="{Binding InformationOfferInvitedText }"/>
-            <Button
-                IsEnabled="{Binding IsInvited }"
-                IsVisible="{Binding IsInvited}"
-                Text="Inscription" Command="{Binding CommandInscription }"/>
+                <Label
+                    IsEnabled="{Binding IsInvited }"
+                    IsVisible="{Binding IsInvited}"
+                    Text="{Binding InformationOfferInvitedText }" />
+                <Button
+                    IsEnabled="{Binding IsInvited }"
+                    IsVisible="{Binding IsInvited}"
+                    Text="Inscription" Command="{Binding CommandInscription }" />
 
                 <Label
                     IsEnabled="{Binding IsConnected }"
                     IsVisible="{Binding IsConnected}"
-                    Text="{Binding InformationOfferText }"/>
-                <Entry 
+                    Text="{Binding InformationOfferText }" />
+                <Entry
                     IsEnabled="{Binding IsConnected }"
                     IsVisible="{Binding IsConnected}"
                     Placeholder="{Binding OfferPlaceholder}"
-                     Text="{Binding TextOffer}"
-                />
+                    Text="{Binding TextOffer}" />
                 <Button
                     IsEnabled="{Binding IsConnected }"
                     IsVisible="{Binding IsConnected}"
-                    Text="Confirmer"  Command="{Binding CommandOffer }"/>
+                    Text="Confirmer" Command="{Binding CommandOffer }" />
             </StackLayout>
         </StackLayout>
     </RefreshView>

@@ -28,38 +28,61 @@ namespace AP4test.Services
         /// MaListeClients = await _apiServices.GetAllAsync<Client>("clients", Client.CollClasse);
         /// }
         ///  <returns>la liste des occurences</returns>
-        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn,Dictionary<string, object> parameters)
+        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn,
+            Dictionary<string, object> parameters)
         {
             try
             {
                 JObject getResult = JObject.Parse(GetJsonString(parameters));
                 var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
                 var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                if (response == null)
+                    return new ObservableCollection<T>();
                 var json = await response.Content.ReadAsStringAsync();
                 JsonConvert.DeserializeObject<List<T>>(json);
                 return GestionCollection.GetLists<T>(collectionReturn);
             }
             catch (Exception)
             {
-                return null;
+                return new ObservableCollection<T>();
             }
         }
-        public async Task<int> PostAsync(string paramUrl, Dictionary<string, object> parameters)
+
+        /// <summary>
+        /// Post anything with the dictionnary
+        /// </summary>
+        /// <param name="paramUrl">Part of the URL of the API that need to be called</param>
+        /// <param name="parameters">Parameters of wath is going to be in the body </param>
+        /// <returns>the id of the object created</returns>
+        public async Task<Dictionary<int, string>> PostAsync(string paramUrl, Dictionary<string, object> parameters)
         {
-            try
-            {
+      //      try
+       //     {
+                Dictionary<int, string> result = new Dictionary<int, string>();
                 JObject getResult = JObject.Parse(GetJsonString(parameters));
                 var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
                 var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
                 var content = await response.Content.ReadAsStringAsync();
                 int nID;
-                return int.TryParse(content, out nID) ? nID : 0;
-            }
-            catch (Exception)
+                int nId = int.TryParse(content, out nID) ? nID : 0;
+                result.Add(nId, content);
+                return result;
+         //   }
+        /*    catch (Exception)
             {
-                return 0;
-            }
+                Dictionary<int, string> result = new Dictionary<int, string>();
+                result.Add(0, ApiConfig.ErrorUnknown);
+                return result;
+            }*/
         }
+
+        /// <summary>
+        /// Post only item class object
+        /// </summary>
+        /// <param name="param">Item created (without id)</param>
+        /// <param name="paramUrl">Part of the URL of the API that need to be called</param>
+        /// <typeparam name="T">Type of the item created</typeparam>
+        /// <returns>the id of the object created</returns>
         public async Task<int> PostAsync<T>(T param, string paramUrl)
         {
             try
@@ -76,6 +99,7 @@ namespace AP4test.Services
                 return 0;
             }
         }
+
         /// <summary>
         /// Get One Item whith a list of parameters in the request
         /// This method is generic and work with values that have toString() method
@@ -87,19 +111,20 @@ namespace AP4test.Services
         public async Task<T> GetOneAsync<T>(string paramUrl, Dictionary<string, object> parameters)
         {
             try
-            { 
+            {
                 JObject getResult = JObject.Parse(GetJsonString(parameters));
-            var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
-            var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
-            var json = await response.Content.ReadAsStringAsync();
-            T res = JsonConvert.DeserializeObject<T>(json);
-            return res;
+                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+                var json = await response.Content.ReadAsStringAsync();
+                T res = JsonConvert.DeserializeObject<T>(json);
+                return res;
             }
             catch (Exception)
             {
                 return default;
             }
         }
+
         /// <summary>
         /// Get a Jsonstring for all the parameters with their name and value
         /// </summary>
@@ -116,6 +141,7 @@ namespace AP4test.Services
                 if (i != parameters.Count)
                     jsonString += @",";
             }
+
             jsonString += @"}";
             return jsonString;
         }
