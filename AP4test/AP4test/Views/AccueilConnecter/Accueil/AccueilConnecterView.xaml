@@ -1,17 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
-             x:Class="AP4test.Views.AccueilConnecter.Accueil.AccueilConnecterView"
->
-    
+             x:Class="AP4test.Views.AccueilConnecter.Accueil.AccueilConnecterView">
+
     <ContentPage.Content>
         <FlexLayout Direction="Column"
                     AlignItems="Center"
                     JustifyContent="SpaceEvenly">
-            <Button Command="{Binding CommandListClassique }" Text="{Binding ButtonListClassiqueText}"  BackgroundColor="MediumBlue" TextColor="White"/>
-            <Button Command="{Binding CommandListInverser}" Text="{Binding ButtonListInverserText}" BackgroundColor="MediumBlue" BorderWidth="1"  TextColor="White" BorderColor="MediumBlue" />
-            <Button Command="{Binding CommandListFlash}" Text="{Binding ButtonListFlashText}" BackgroundColor="MediumBlue" BorderWidth="1"  TextColor="White" BorderColor="MediumBlue" />
+            <Button Command="{Binding CommandListClassique }" Text="{Binding ButtonListClassiqueText}"
+                    BackgroundColor="MediumBlue" TextColor="White" />
+            <Button Command="{Binding CommandListInverser}" Text="{Binding ButtonListInverserText}"
+                    BackgroundColor="MediumBlue" BorderWidth="1" TextColor="White" BorderColor="MediumBlue" />
+            <Button Command="{Binding CommandListFlash}" Text="{Binding ButtonListFlashText}"
+                    BackgroundColor="MediumBlue" BorderWidth="1" TextColor="White" BorderColor="MediumBlue" />
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -34,7 +34,6 @@
                 RelativeLayout.WidthConstraint="140" />
 
 
-
             <Button Text="Connexion"
                     Command="{Binding CommandConnexion}"
                     RelativeLayout.XConstraint="120"

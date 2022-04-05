@@ -2,12 +2,18 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AP4test.Views.EnchereSample.EndEnchere.LooseView">
+             x:Class="AP4test.Views.EnchereSample.EndEnchere.LooseView"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.EndEnchere;assembly=AP4test">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:DataType="local:LooseViewModel" Padding="20" Margin="20" HorizontalOptions="Center">
+            <Label Text="{Binding RipText}" />
+            <Label Text="{Binding NotWonText}" />
+            <Image
+                Source="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fnot-stonk&psig=AOvVaw2jv3_yw_pLAGlU3m-V0aYx&ust=1649170718704000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIjBnIbW-vYCFQAAAAAdAAAAABBW"
+                IsAnimationPlaying="True" />
+            <Button Command="{Binding ButtonSuivant }" Text="{Binding ButtonSuivantText}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

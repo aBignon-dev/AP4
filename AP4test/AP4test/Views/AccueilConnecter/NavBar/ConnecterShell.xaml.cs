@@ -13,14 +13,15 @@ namespace AP4test.Views.AccueilConnecter.NavBar
     {
         public ConnecterShell()
         {
-            Routing.RegisterRoute(nameof(ListEnchereSampleView),typeof(ListEnchereSampleView));
-            Routing.RegisterRoute(nameof(WinView),typeof(WinView));
-            Routing.RegisterRoute(nameof(LooseView),typeof(LooseView));
-            Routing.RegisterRoute(nameof(EnchereFlashView),typeof(EnchereFlashView));
-            Routing.RegisterRoute(nameof(EnchereSampleView),typeof(EnchereSampleView));
-            Routing.RegisterRoute(nameof(InscriptionView),typeof(InscriptionView));
+            Routing.RegisterRoute(nameof(ListEnchereSampleView), typeof(ListEnchereSampleView));
+            Routing.RegisterRoute(nameof(WinView), typeof(WinView));
+            Routing.RegisterRoute(nameof(LooseView), typeof(LooseView));
+            Routing.RegisterRoute(nameof(EnchereFlashView), typeof(EnchereFlashView));
+            Routing.RegisterRoute(nameof(EnchereSampleView), typeof(EnchereSampleView));
+            Routing.RegisterRoute(nameof(InscriptionView), typeof(InscriptionView));
             InitializeComponent();
         }
+
         /// <summary>
         /// Disconnect the current user + quit the app
         /// </summary>

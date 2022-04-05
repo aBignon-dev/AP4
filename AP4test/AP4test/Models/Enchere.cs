@@ -16,7 +16,8 @@ namespace AP4test.Models
 
         #region Constructeurs
 
-        public Enchere(int id,DateTime dateDebut, DateTime dateFin, float prixreserve,bool visibilite,TypeEnchere typeEnchere, Produit produit)
+        public Enchere(int id, DateTime dateDebut, DateTime dateFin, float prixreserve, bool visibilite,
+            TypeEnchere typeEnchere, Produit produit)
         {
             Id = id;
             DateDebut = dateDebut;
@@ -45,27 +46,24 @@ namespace AP4test.Models
         {
             get
             {
-                if(!Visibilite)
-                   return "Secret";
-                return  PrixUtil.FormatOuput(Prixreserve) +" €";
+                if (!Visibilite)
+                    return "Secret";
+                return PrixUtil.FormatOuput(Prixreserve) + " €";
             }
-            set
-            {
-                PrixreserveRead = value;
-            } 
+            set { PrixreserveRead = value; }
         }
 
-        [JsonProperty("letypeenchere")]
-        public TypeEnchere TypeEnchere { get; set; }
-        
-        [JsonProperty("leproduit")]
-        public Produit Produit { get; set; }
+        [JsonProperty("lemagasin")] public Magasin Magasin { get; set; }
+
+        [JsonProperty("letypeenchere")] public TypeEnchere TypeEnchere { get; set; }
+
+        [JsonProperty("leproduit")] public Produit Produit { get; set; }
 
         public string NomRead
         {
             get
             {
-                if (TypeEnchere.Id=="3")
+                if (TypeEnchere.Id == "3")
                     return "Secret";
                 return Produit.Nom;
             }
@@ -76,19 +74,28 @@ namespace AP4test.Models
         {
             get
             {
-                if (TypeEnchere.Id=="3")
+                if (TypeEnchere.Id == "3")
                     return "https://fr.shopping.rakuten.com/photo/boite-mystere-1229904330_ML.jpg";
                 return Produit.Photo;
             }
             set { PhotoRead = value; }
         }
-        [JsonProperty("prixdepart")]
 
-        public double PrixDepart { get; set; }
-        
+        [JsonProperty("prixdepart")] public double PrixDepart { get; set; }
+
+        [JsonProperty("tableauFlash")] public string TableauFlash { get; set; }
+
         #endregion
 
         #region Methodes
+
+        public static Enchere GetEnchereSelected(string IdEnchere)
+        {
+            foreach (var enchere in CollEnchere)
+                if (enchere.Id.ToString() == IdEnchere)
+                    return enchere;
+            return null;
+        }
 
         #endregion
     }

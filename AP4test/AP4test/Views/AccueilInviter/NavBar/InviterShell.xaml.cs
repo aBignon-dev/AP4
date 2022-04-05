@@ -9,6 +9,7 @@ namespace AP4test.Views.NavBar
         {
             InitializeComponent();
         }
+
         public void DeconnexionClickedAsync(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();

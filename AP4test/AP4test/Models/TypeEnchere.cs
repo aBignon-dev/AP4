@@ -5,10 +5,12 @@ namespace AP4test.Models
     public class TypeEnchere
     {
         #region Attributs
+
         public static readonly List<TypeEnchere> CollClasse = new List<TypeEnchere>();
 
         public string Id { get; set; }
         public string Nom { get; set; }
+
         #endregion
 
         #region Constructeurs

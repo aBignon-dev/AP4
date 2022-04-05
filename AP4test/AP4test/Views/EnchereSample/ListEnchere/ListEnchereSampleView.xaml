@@ -4,8 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AP4test.Views.EnchereSample.ListEnchere.ListEnchereSampleView"
              Title="{Binding Title}"
-             xmlns:model="clr-namespace:AP4test.Models;assembly=AP4test"  
-             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.ListEnchere;assembly=AP4test"  
+             xmlns:model="clr-namespace:AP4test.Models;assembly=AP4test"
+             xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.ListEnchere;assembly=AP4test"
              x:Name="BrowseEncherePage">
     <RefreshView x:DataType="local:ListEnchereSampleViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
@@ -15,8 +15,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:Enchere">
-                        <Label Text=
-                               "{Binding NomRead,StringFormat='Produit : {0}'}"
+                        <Label Text="{Binding NomRead,StringFormat='Produit : {0}'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16" />
@@ -25,8 +24,7 @@
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:ListEnchereSampleViewModel}}, Path=ItemTapped}"
                             CommandParameter="{Binding .}"
                             WidthRequest="200"
-                            HeightRequest="200"
-                        />
+                            HeightRequest="200" />
                         <Label Text="{Binding DateDebut,StringFormat='Date debut : {0}'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
@@ -35,12 +33,12 @@
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
                                FontSize="13" />
-                               
+
                         <Label Text="{Binding PrixreserveRead,StringFormat='Prix de réserve : {0}'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
                                FontSize="13" />
-  
+
 
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer

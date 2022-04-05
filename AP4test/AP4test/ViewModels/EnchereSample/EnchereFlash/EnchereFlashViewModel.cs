@@ -14,8 +14,8 @@ namespace AP4test.ViewModels.EnchereSample.EnchereFlash
             get => _idEnchere;
             set => _idEnchere = Uri.UnescapeDataString(value ?? string.Empty);
         }
-        
-        
+
+
         #region Methodes Load
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereFlash
             ViewModelConfig.OnCancel = false;
             IsBusy = true;
         }
-        
+
         /// <summary>
         /// Append when the user leave the current page
         /// </summary>
@@ -34,6 +34,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereFlash
         {
             ViewModelConfig.OnCancel = true;
         }
+
         #endregion
     }
 }

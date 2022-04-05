@@ -3,7 +3,6 @@
     public class EnchereSamplelang
     {
         public static string
-            
             OfferPlaceholder = "Votre offre :",
             ErrorOfferIncorrectFormat = "Format incorrect",
             Title = "Enchere %type% Produit : %produit%",

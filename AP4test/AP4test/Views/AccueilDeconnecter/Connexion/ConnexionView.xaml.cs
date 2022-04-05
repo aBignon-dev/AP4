@@ -21,8 +21,6 @@ namespace AP4test.Views.AccueilDeconnecter.Connexion
 
         private void BtnConnexion_Clicked(object sender, EventArgs e)
         {
-            
         }
-        
     }
 }

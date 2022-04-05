@@ -8,6 +8,7 @@ namespace AP4test.Models
     public class Encherir
     {
         #region Attributs
+
         public static List<Encherir> CollOffer = new List<Encherir>();
 
         #endregion
@@ -20,35 +21,31 @@ namespace AP4test.Models
             PseudoUser = pseudoUser;
             CollOffer.Add(this);
         }
+
         #endregion
 
         #region Getters/Setters
-        [JsonProperty("prixenchere")]
-        public float PrixEnchere { get; set; }
-        
-        [JsonProperty("pseudo")]
-        public string PseudoUser { get; set; }
-        
+
+        [JsonProperty("prixenchere")] public float PrixEnchere { get; set; }
+
+        [JsonProperty("pseudo")] public string PseudoUser { get; set; }
+
         public string OfferRead
         {
             get
             {
                 if (PseudoUser == "Aucune offre")
                     return PrixEnchereRead;
-                return  PseudoUser+ " :"+PrixEnchereRead;
+                return PseudoUser + " :" + PrixEnchereRead;
             }
             set { OfferRead = value; }
         }
 
         public string PrixEnchereRead
         {
-            get
-            {
-                return PrixUtil.FormatOuput(PrixEnchere) +" €";
-            }
+            get { return PrixUtil.FormatOuput(PrixEnchere) + " €"; }
             set { PrixEnchereRead = value; }
         }
-        
 
         #endregion
 

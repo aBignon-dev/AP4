@@ -56,24 +56,24 @@ namespace AP4test.Services
         /// <returns>the id of the object created</returns>
         public async Task<Dictionary<int, string>> PostAsync(string paramUrl, Dictionary<string, object> parameters)
         {
-      //      try
-       //     {
-                Dictionary<int, string> result = new Dictionary<int, string>();
-                JObject getResult = JObject.Parse(GetJsonString(parameters));
-                var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
-                var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
-                var content = await response.Content.ReadAsStringAsync();
-                int nID;
-                int nId = int.TryParse(content, out nID) ? nID : 0;
-                result.Add(nId, content);
-                return result;
-         //   }
-        /*    catch (Exception)
-            {
-                Dictionary<int, string> result = new Dictionary<int, string>();
-                result.Add(0, ApiConfig.ErrorUnknown);
-                return result;
-            }*/
+            //      try
+            //     {
+            Dictionary<int, string> result = new Dictionary<int, string>();
+            JObject getResult = JObject.Parse(GetJsonString(parameters));
+            var jsonContent = new StringContent(getResult.ToString(), Encoding.UTF8, "application/json");
+            var response = await ClientHttp.PostAsync(ApiConfig.BaseApiAddress + paramUrl, jsonContent);
+            var content = await response.Content.ReadAsStringAsync();
+            int nID;
+            int nId = int.TryParse(content, out nID) ? nID : 0;
+            result.Add(nId, content);
+            return result;
+            //   }
+            /*    catch (Exception)
+                {
+                    Dictionary<int, string> result = new Dictionary<int, string>();
+                    result.Add(0, ApiConfig.ErrorUnknown);
+                    return result;
+                }*/
         }
 
         /// <summary>

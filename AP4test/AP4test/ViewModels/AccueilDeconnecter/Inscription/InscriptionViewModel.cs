@@ -16,16 +16,15 @@ using Xamarin.Forms;
 
 namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
 {
-    public class InscriptionViewModel:BaseVueModele
+    public class InscriptionViewModel : BaseVueModele
     {
-
-
         #region Attributs
+
         private readonly Api _apiServices = new Api();
-        private string _mail= String.Empty;
-        private string _pass= String.Empty;
-        private string _photo= String.Empty;
-        private string _pseudo= String.Empty;
+        private string _mail = String.Empty;
+        private string _pass = String.Empty;
+        private string _photo = String.Empty;
+        private string _pseudo = String.Empty;
         public string AlertMessage = String.Empty;
 
         #endregion
@@ -35,8 +34,10 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
         #endregion
 
         #region Getters/Setters
+
         public ICommand CommandRetour => new Command(() => Application.Current.MainPage = new AccueilDeconnecterView());
         public ICommand CommandInscription => new Command(Inscription);
+
         public string Mail
         {
             get { return _mail; }
@@ -49,6 +50,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 }
             }
         }
+
         public string Pass
         {
             get { return _pass; }
@@ -61,6 +63,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 }
             }
         }
+
         public string Photo
         {
             get { return _photo; }
@@ -73,6 +76,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 }
             }
         }
+
         public string Pseudo
         {
             get { return _pseudo; }
@@ -85,26 +89,31 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 }
             }
         }
+
         #endregion
 
         #region Methodes
+
         private async void Inscription()
         {
             Authorize();
-            if (AlertMessage==String.Empty)
+            if (AlertMessage == String.Empty)
             {
                 User user = new User(Pseudo, Photo, Pass, Mail);
-                user.IdApi= await PostUser(user);
+                user.IdApi = await PostUser(user);
                 if (user.IdApi != 0)
                 {
                     await User.AjoutItemSqlite(user);
                     Application.Current.MainPage = new ConnecterShell();
                 }
+
                 AlertMessage = Lang.ErrorApi;
             }
+
             await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleInscription,
                 AlertMessage, Lang.AlertCancel);
         }
+
         /// <summary>
         /// Méthode vérifiant que tout les champs de saisie ont une valeur correct
         /// </summary>
@@ -112,13 +121,13 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
         {
             RemiseAZeroTestBon();
             TestChampVide();
-            if(AlertMessage ==String.Empty)
+            if (AlertMessage == String.Empty)
                 TestChampValide();
         }
 
         private void TestChampVide()
         {
-            if (Mail== String.Empty ||Pass ==String.Empty ||Photo== String.Empty ||Pseudo ==String.Empty  )
+            if (Mail == String.Empty || Pass == String.Empty || Photo == String.Empty || Pseudo == String.Empty)
                 AlertMessage = AccueilDeconnecterConfig.ErrorFieldEmpty;
         }
 
@@ -138,7 +147,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
             catch
             {
                 return false;
-            }        
+            }
         }
 
         private void RemiseAZeroTestBon()
@@ -148,9 +157,9 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
 
         private async Task<int> PostUser(User user)
         {
-            return await _apiServices.PostAsync(user,ApiConfig.PostUser);
+            return await _apiServices.PostAsync(user, ApiConfig.PostUser);
         }
 
-        #endregion 
+        #endregion
     }
 }

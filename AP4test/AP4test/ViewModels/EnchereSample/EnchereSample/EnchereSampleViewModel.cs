@@ -196,7 +196,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
         {
             if (!_firstloaded)
             {
-                GetEnchereSelected();
+                EnchereSelected = Enchere.GetEnchereSelected(IdEnchere);
                 LowerBlockDispatch();
                 TitleLoad();
                 Encheris.RemoveAt(0);
@@ -332,18 +332,6 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
             IsInvited = true;
         }
 
-
-        private void GetEnchereSelected()
-        {
-            foreach (var enchere in Enchere.CollEnchere)
-                if (enchere.Id.ToString() == IdEnchere)
-                {
-                    EnchereSelected = enchere;
-                    return;
-                }
-        }
-
-
         private void TitleLoad()
         {
             Title = EnchereSamplelang.Title
@@ -399,6 +387,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
                         $"{nameof(WinView)}?{nameof(WinViewModel.IdEnchere)}={EnchereSelected.Id.ToString()}");
                     return;
                 }
+
                 await Shell.Current.GoToAsync(
                     $"{nameof(LooseView)}");
             }

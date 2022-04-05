@@ -1,11 +1,6 @@
 ﻿using System.Windows.Input;
 using AP4test.Models;
 using AP4test.ViewModels.AccueilConnecter.Config;
-using AP4test.ViewModels.EnchereSample.ListEnchere;
-using AP4test.Views.AccueilDeconnecter.Connexion;
-using AP4test.Views.AccueilDeconnecter.Inscription;
-using AP4test.Views.EnchereSample.ListEnchere;
-using AP4test.Views.NavBar;
 using Xamarin.Forms;
 
 namespace AP4test.ViewModels.AccueilConnecter.Accueil
@@ -14,11 +9,11 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
     {
         #region Attributs
 
-        public string ButtonListFlashText { get;}
+        public string ButtonListFlashText { get; }
 
-        public string ButtonListInverserText { get;}
+        public string ButtonListInverserText { get; }
 
-        public string ButtonListClassiqueText { get;}
+        public string ButtonListClassiqueText { get; }
 
         #endregion
 
@@ -33,8 +28,6 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
             TypeEnchere.CollClasse.Clear();
         }
 
-
-
         #endregion
 
         #region Getters/Setters
@@ -46,6 +39,7 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
         #endregion
 
         #region Methodes
+
         async void Disptach(TypeEnchere typeEnchere)
         {
             await Shell.Current.GoToAsync($"ListEnchereSampleView?IdTypeEnchere={typeEnchere.Id}");

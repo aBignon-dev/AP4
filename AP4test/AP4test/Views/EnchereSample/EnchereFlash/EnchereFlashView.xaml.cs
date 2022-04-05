@@ -17,14 +17,16 @@ namespace AP4test.Views.EnchereSample.EnchereFlash
         public EnchereFlashView()
         {
             InitializeComponent();
-            BindingContext= _viewModel = new EnchereFlashViewModel();
+            BindingContext = _viewModel = new EnchereFlashViewModel();
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-        protected override void OnDisappearing ()
+
+        protected override void OnDisappearing()
         {
             base.OnDisappearing();
             _viewModel.OnDisappearing();

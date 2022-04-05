@@ -23,11 +23,11 @@ namespace AP4test.Util
                     break;
                 }
             }
-            
+
             int numberparsed;
             if (!int.TryParse(numbersplit[0], out numberparsed))
                 return -1;
-            if( numbersplit.Length == 1)
+            if (numbersplit.Length == 1)
                 return numberparsed;
             if (numbersplit[1].Equals("k") ||
                 numbersplit[1].Equals("m") ||

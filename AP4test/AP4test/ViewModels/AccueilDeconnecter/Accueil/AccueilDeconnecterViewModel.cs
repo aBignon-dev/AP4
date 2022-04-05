@@ -13,12 +13,15 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Accueil
         #endregion
 
         #region Constructeurs
+
         public AccueilDeconnecterViewModel()
         {
         }
+
         #endregion
 
         #region Getters/Setters
+
         public ICommand CommandConnexion => new Command(() => Application.Current.MainPage = new ConnexionView());
         public ICommand CommandInscription => new Command(() => Application.Current.MainPage = new InscriptionView());
         public ICommand CommandInviter => new Command(() => Application.Current.MainPage = new InviterShell());

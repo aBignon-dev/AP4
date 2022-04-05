@@ -18,6 +18,7 @@ namespace AP4test.Services
 
             return result;
         }
+
         public static T GetObjet<T>(List<T> param, int param2)
 
         {
@@ -30,8 +31,8 @@ namespace AP4test.Services
                 result = unparam;
                 break;
             }
+
             return result;
         }
-       
     }
 }

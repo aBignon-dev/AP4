@@ -11,11 +11,11 @@ using Xamarin.Forms.Xaml;
 namespace AP4test.Views.EnchereSample.ListEnchere
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-
     public partial class ListEnchereSampleView : ContentPage
     {
         ListEnchereSampleViewModel _viewModel;
-        public ListEnchereSampleView( )
+
+        public ListEnchereSampleView()
         {
             InitializeComponent();
             BindingContext = _viewModel = new ListEnchereSampleViewModel();

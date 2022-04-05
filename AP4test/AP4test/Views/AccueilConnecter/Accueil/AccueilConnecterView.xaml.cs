@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace AP4test.Views.AccueilConnecter.Accueil
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    
     public partial class AccueilConnecterView : ContentPage
     {
         private AccueilConnecterViewModel _viewModel;
+
         public AccueilConnecterView()
         {
             InitializeComponent();
-            
+
             BindingContext = _viewModel = new AccueilConnecterViewModel();
         }
     }
