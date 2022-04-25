@@ -33,7 +33,7 @@ namespace AP4test.ViewModels.AccueilConnecter.Accueil
         #region Getters/Setters
 
         public ICommand CommandListClassique => new Command(() => Disptach(new TypeEnchere("1", "classique")));
-        public ICommand CommandListInverser => new Command(() => Disptach(new TypeEnchere("4", "inverse")));
+        public ICommand CommandListInverser => new Command(() => Disptach(new TypeEnchere("2", "inversevrai")));
         public ICommand CommandListFlash => new Command(() => Disptach(new TypeEnchere("3", "flash")));
 
         #endregion
