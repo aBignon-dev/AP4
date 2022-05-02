@@ -7,10 +7,15 @@
              xmlns:local="clr-namespace:AP4test.ViewModels.EnchereSample.EndEnchere;assembly=AP4test">
     <RefreshView x:DataType="local:WinViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:DataType="local:WinViewModel" Padding="20" Margin="20" HorizontalOptions="Center">
+            <Label Text="{Binding GgText}"  TextColor="Teal" />
+            <Label Text="{Binding  WonText}" TextColor="Teal"/>
+            <Label Text="{Binding  InfoFirstLineText}" />
+            <Label Text="{Binding   InfoSecondLineText}" />
+            <Image
+                Source="https://media0.giphy.com/media/PgXcWhrL0gjQlAhHUY/giphy.gif"
+                IsAnimationPlaying="True" />
+            <Button Command="{Binding ButtonSuivant }" Text="{Binding ButtonSuivantText}"></Button>
         </StackLayout>
     </RefreshView>
 </ContentPage>

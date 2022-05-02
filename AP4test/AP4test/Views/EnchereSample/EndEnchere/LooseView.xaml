@@ -8,10 +8,10 @@
 
     <ContentPage.Content>
         <StackLayout x:DataType="local:LooseViewModel" Padding="20" Margin="20" HorizontalOptions="Center">
-            <Label Text="{Binding RipText}" />
-            <Label Text="{Binding NotWonText}" />
+            <Label Text="{Binding RipText}" TextColor="DarkRed"/>
+            <Label Text="{Binding NotWonText}" TextColor="DarkRed" />
             <Image
-                Source="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgiphy.com%2Fexplore%2Fnot-stonk&psig=AOvVaw2jv3_yw_pLAGlU3m-V0aYx&ust=1649170718704000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIjBnIbW-vYCFQAAAAAdAAAAABBW"
+                Source="https://media3.giphy.com/media/Oj8pUuT5FOpxHH9LIk/giphy.gif"
                 IsAnimationPlaying="True" />
             <Button Command="{Binding ButtonSuivant }" Text="{Binding ButtonSuivantText}"></Button>
         </StackLayout>
