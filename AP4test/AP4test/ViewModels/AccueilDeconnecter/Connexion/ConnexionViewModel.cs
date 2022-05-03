@@ -65,8 +65,8 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Connexion
         private async void Connexion()
         {
             Dictionary<string, object> param = new Dictionary<string, object>();
-            param.Add("Email", Mail);
-            param.Add("Password", Pass);
+            param.Add(ApiConfig.GetUserByMailAndPass_Mail, Mail);
+            param.Add(ApiConfig.GetUserByMailAndPass_Pass, Pass);
             User user = await GetUserByMdpAndMail(param);
             if (user == null)
                 await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleConnexion,

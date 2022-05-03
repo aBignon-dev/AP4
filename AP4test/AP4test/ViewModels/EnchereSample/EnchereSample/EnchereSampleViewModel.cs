@@ -9,7 +9,6 @@ using AP4test.Config;
 using AP4test.Models;
 using AP4test.Services;
 using AP4test.Util;
-using AP4test.ViewModels.AccueilDeconnecter.Config;
 using AP4test.ViewModels.EnchereSample.Config;
 using AP4test.ViewModels.EnchereSample.EndEnchere;
 using AP4test.Views.AccueilDeconnecter.Inscription;
@@ -35,7 +34,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
         private string _textOffer;
         private string _alertMessage = String.Empty;
         private string _timeRemaining;
-        private double _coefficient;
+        private decimal _coefficient;
         private bool _isInvited;
         private bool _isConnected;
         private string _informationOfferText;
@@ -124,7 +123,7 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
             set => SetProperty(ref _alertMessage, value);
         }
 
-        private double Coefficient
+        private decimal Coefficient
         {
             get => _coefficient;
             set => SetProperty(ref _coefficient, value);

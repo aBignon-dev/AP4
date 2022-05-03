@@ -27,7 +27,8 @@ namespace AP4test.Config
             PostEncherir_IdEnchere = "IdEnchere",
             PostEncherir_Coefficient = "Coefficient",
             PostEncherir_PrixEnchere = "PrixEnchere",
-            GetActualPrice = "getActualprice",
+            GetActualPrice = "getActualPrice",
+            GetActualPrice_ID = "Id",
             GetLastSixOffer = "getLastSixOffer",
             GetLastSixOffer_EnchereID = "Id",
 
@@ -47,6 +48,8 @@ namespace AP4test.Config
             #region Users
 
             GetUserByMailAndPass = "getUserByMailAndPass",
+            GetUserByMailAndPass_Pass = "Password",
+            GetUserByMailAndPass_Mail = "Email",
             PostUser = "postUser",
 
             #endregion

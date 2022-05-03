@@ -2,8 +2,8 @@
 {
     public class EnchereSampleConfig
     {
-        public static double
-            PercentInverser = 0.50,
-            PercentClassique = 0.10;
+        public static decimal
+            PercentInverser = 0.50m,
+            PercentClassique = 0.1m;
     }
 }

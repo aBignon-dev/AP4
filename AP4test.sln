@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP4test.Android", "AP4test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AP4test", "AP4test\AP4test\AP4test.csproj", "{027AB7F6-A94C-4786-9747-351416CA10D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAP4", "UnitTestAP4\UnitTestAP4.csproj", "{8FBAC5FA-5A5D-400A-AF59-D8680D4A2207}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{027AB7F6-A94C-4786-9747-351416CA10D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{027AB7F6-A94C-4786-9747-351416CA10D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{027AB7F6-A94C-4786-9747-351416CA10D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8FBAC5FA-5A5D-400A-AF59-D8680D4A2207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FBAC5FA-5A5D-400A-AF59-D8680D4A2207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FBAC5FA-5A5D-400A-AF59-D8680D4A2207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FBAC5FA-5A5D-400A-AF59-D8680D4A2207}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using AP4test.Models;
 
 namespace AP4test.Util
@@ -12,18 +10,6 @@ namespace AP4test.Util
         public double HourInSec = 3600;
 
         public double MinInSec = 60;
-
-        private static int MillisecondInSecond(double milli)
-        {
-            return (int) (milli / 1000);
-        }
-
-        public static string TimeInMilliFormat(double milli)
-        {
-            int second = MillisecondInSecond(milli);
-
-            return "1s";
-        }
 
         public static double TimeLeftPercent(Enchere enchereSelected)
         {

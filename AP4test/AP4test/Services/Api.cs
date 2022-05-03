@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace AP4test.Services
 {
-    internal class Api
+    public class Api
     {
         private static HttpClient ClientHttp = new HttpClient();
 
@@ -28,8 +28,7 @@ namespace AP4test.Services
         /// MaListeClients = await _apiServices.GetAllAsync<Client>("clients", Client.CollClasse);
         /// }
         ///  <returns>la liste des occurences</returns>
-        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn,
-            Dictionary<string, object> parameters)
+        public async Task<ObservableCollection<T>> GetAllAsync<T>(string paramUrl, List<T> collectionReturn,Dictionary<string, object> parameters)
         {
             try
             {
