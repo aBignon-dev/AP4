@@ -14,7 +14,11 @@ namespace AP4test.Models
         #endregion
 
         #region Constructeurs
-
+        /// <summary>
+        /// Constructeur de la classe encherir
+        /// </summary>
+        /// <param name="prixenchere"></param>
+        /// <param name="pseudoUser"></param>
         public Encherir(float prixenchere, string pseudoUser)
         {
             PrixEnchere = prixenchere;
@@ -30,6 +34,9 @@ namespace AP4test.Models
 
         [JsonProperty("pseudo")] public string PseudoUser { get; set; }
 
+        /// <summary>
+        /// Accesseur qui fusionne l'attribut pseudo et le prix de l'enchere
+        /// </summary>
         public string OfferRead
         {
             get
@@ -40,10 +47,12 @@ namespace AP4test.Models
             }
             set { OfferRead = value; }
         }
-
+        /// <summary>
+        /// Accesseur qui transforme le prix de l'enchere en prix formater (50000=50k)
+        /// </summary>
         public string PrixEnchereRead
         {
-            get { return PrixUtil.FormatOuput(PrixEnchere) + " €"; }
+            get { return PrixUtil.FormatOutput(PrixEnchere) + " €"; }
             set { PrixEnchereRead = value; }
         }
 

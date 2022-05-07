@@ -46,7 +46,6 @@
                     IsEnabled="{Binding IsInvited }"
                     IsVisible="{Binding IsInvited}"
                     Text="Inscription" Command="{Binding CommandInscription }" />
-
                 <Label
                     IsEnabled="{Binding IsConnected }"
                     IsVisible="{Binding IsConnected}"

@@ -26,7 +26,7 @@ namespace AP4test.Util
             return -1;
         }
 
-        public static string FormatOuput(float number)
+        public static string FormatOutput(float number)
         {
             String format = "";
             if (number >= billion)

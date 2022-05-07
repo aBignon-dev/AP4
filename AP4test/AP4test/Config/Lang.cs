@@ -13,10 +13,10 @@
 
             #region Other
 
-            AlertCancel = "ok"
+            AlertCancel = "ok";
 
             #endregion
 
-            ;
+            
     }
 }

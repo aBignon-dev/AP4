@@ -69,7 +69,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Connexion
             param.Add(ApiConfig.GetUserByMailAndPass_Pass, Pass);
             User user = await GetUserByMdpAndMail(param);
             if (user == null)
-                await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleConnexion,
+                await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterLang.ErrorTitleConnexion,
                     Lang.ErrorApi, Lang.AlertCancel);
             else
             {

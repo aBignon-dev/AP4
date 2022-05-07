@@ -1,6 +1,6 @@
 ﻿namespace AP4test.ViewModels.AccueilDeconnecter.Config
 {
-    public class AccueilDeconnecterConfig
+    public class AccueilDeconnecterLang
     {
         public static string
 

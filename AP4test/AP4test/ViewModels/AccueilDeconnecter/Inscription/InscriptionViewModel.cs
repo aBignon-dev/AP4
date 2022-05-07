@@ -110,7 +110,7 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
                 AlertMessage = Lang.ErrorApi;
             }
 
-            await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterConfig.ErrorTitleInscription,
+            await Application.Current.MainPage.DisplayAlert(AccueilDeconnecterLang.ErrorTitleInscription,
                 AlertMessage, Lang.AlertCancel);
         }
 
@@ -128,13 +128,13 @@ namespace AP4test.ViewModels.AccueilDeconnecter.Inscription
         private void TestChampVide()
         {
             if (Mail == String.Empty || Pass == String.Empty || Photo == String.Empty || Pseudo == String.Empty)
-                AlertMessage = AccueilDeconnecterConfig.ErrorFieldEmpty;
+                AlertMessage = AccueilDeconnecterLang.ErrorFieldEmpty;
         }
 
         private void TestChampValide()
         {
             if (!IsValidEmail())
-                AlertMessage = AccueilDeconnecterConfig.ErrorEmailWrongFormat;
+                AlertMessage = AccueilDeconnecterLang.ErrorEmailWrongFormat;
         }
 
         private bool IsValidEmail()

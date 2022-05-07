@@ -26,7 +26,7 @@ public partial class Tests
         #region Thousand
         string thousandExcepted = "1k";
         
-        string thousandResult = PrixUtil.FormatOuput(PrixUtil.thousand);
+        string thousandResult = PrixUtil.FormatOutput(PrixUtil.thousand);
         
         Assert.AreEqual(thousandExcepted,thousandResult);
         #endregion
@@ -35,7 +35,7 @@ public partial class Tests
 
         string millionExcepted = "1m";
 
-        string millionResult = PrixUtil.FormatOuput(PrixUtil.million);
+        string millionResult = PrixUtil.FormatOutput(PrixUtil.million);
        
         Assert.AreEqual(millionExcepted,millionResult);
         #endregion
@@ -43,7 +43,7 @@ public partial class Tests
         #region Billion
         string billionExcepted = "1B";
 
-        string billionResult = PrixUtil.FormatOuput(PrixUtil.billion);
+        string billionResult = PrixUtil.FormatOutput(PrixUtil.billion);
        
         Assert.AreEqual(billionExcepted,billionResult);
         #endregion
@@ -51,7 +51,7 @@ public partial class Tests
         #region Less than a thousand
         string excepted = "100";
 
-        string result = PrixUtil.FormatOuput(100);
+        string result = PrixUtil.FormatOutput(100);
        
         Assert.AreEqual(excepted,result);
         #endregion

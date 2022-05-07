@@ -7,7 +7,17 @@ namespace AP4test.Models
         #region Attributs
 
         public static readonly List<Magasin> CollClasse = new List<Magasin>();
-
+        /// <summary>
+        /// Constructeur de la classe Magasin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="adresse"></param>
+        /// <param name="ville"></param>
+        /// <param name="codepostal"></param>
+        /// <param name="portable"></param>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
         public Magasin(string id, string nom, string adresse, string ville, string codepostal, string portable, double latitude, double longitude)
         {
             Id = id;

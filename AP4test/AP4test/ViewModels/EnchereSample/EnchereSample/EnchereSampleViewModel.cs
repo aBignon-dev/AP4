@@ -368,7 +368,6 @@ namespace AP4test.ViewModels.EnchereSample.EnchereSample
                     await ProgressBarLoad();
                     await TimeRemainingLoad();
                     await TimeDone();
-                    //TODO Add task when TimeLeft in text is done
                 }
             });
         }

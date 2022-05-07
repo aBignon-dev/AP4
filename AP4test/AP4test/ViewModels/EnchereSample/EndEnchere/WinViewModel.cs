@@ -13,7 +13,6 @@ namespace AP4test.ViewModels.EnchereSample.EndEnchere
     {
         #region Attributs
 
-        //TODO Faire la page WinView
         private string _idEnchere;
         private string _infoSecondLineText;
         private string _infoFirstLineText;

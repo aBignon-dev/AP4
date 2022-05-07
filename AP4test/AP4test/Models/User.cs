@@ -59,23 +59,30 @@ namespace AP4test.Models
 
         public string Pseudo { get; set; }
 
-        //TODO Change type of Photo element
         public string Photo { get; set; }
 
         #endregion
 
         #region Methodes
-
+        /// <summary>
+        /// Supprime tout les User de la base
+        /// </summary>
         public static async Task DeleteAllSqlite()
         {
             await App.Database.DeleteAllAsync<User>();
         }
-
+        /// <summary>
+        /// Ajoute le User a la BDD
+        /// </summary>
+        /// <param name="param">User a ajouter</param>
         public static async Task AjoutItemSqlite(User param)
         {
             await App.Database.SaveItemAsync(param);
         }
-
+        /// <summary>
+        /// Récupere tout les User dans la BDD
+        /// </summary>
+        /// <returns>Collection de User</returns>
         public static Task<ObservableCollection<User>> GetAllItemsSqlite()
         {
             return Task.FromResult(App.Database.GetItemsAsync<User>());

@@ -15,7 +15,16 @@ namespace AP4test.Models
         #endregion
 
         #region Constructeurs
-
+        /// <summary>
+        /// Constructeur de la classe Enchere
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dateDebut"></param>
+        /// <param name="dateFin"></param>
+        /// <param name="prixreserve"></param>
+        /// <param name="visibilite"></param>
+        /// <param name="typeEnchere"></param>
+        /// <param name="produit"></param>
         public Enchere(int id, DateTime dateDebut, DateTime dateFin, float prixreserve, bool visibilite,
             TypeEnchere typeEnchere, Produit produit)
         {
@@ -40,15 +49,17 @@ namespace AP4test.Models
 
         public bool Visibilite { get; set; }
         public float Prixreserve { get; set; }
-
-
+        
+        /// <summary>
+        /// Accesseur du prix reserve permettant l'affichage spécialisé suivant l'attribut Visibilité
+        /// </summary>
         public string PrixreserveRead
         {
             get
             {
                 if (!Visibilite)
                     return "Secret";
-                return PrixUtil.FormatOuput(Prixreserve) + " €";
+                return PrixUtil.FormatOutput(Prixreserve) + " €";
             }
             set { PrixreserveRead = value; }
         }
@@ -59,6 +70,9 @@ namespace AP4test.Models
 
         [JsonProperty("leproduit")] public Produit Produit { get; set; }
 
+        /// <summary>
+        /// Accesseur du nom de produit permettant l'affichage spécialisé suivant le type d'enchère
+        /// </summary>
         public string NomRead
         {
             get
@@ -69,7 +83,9 @@ namespace AP4test.Models
             }
             set { NomRead = value; }
         }
-
+        /// <summary>
+        /// Accesseur du nom de produit permettant l'affichage spécialisé suivant le type d'enchère
+        /// </summary>
         public string PhotoRead
         {
             get
@@ -88,7 +104,11 @@ namespace AP4test.Models
         #endregion
 
         #region Methodes
-
+        /// <summary>
+        /// Récupere l'enchère rechercher par rappport a l'id envoyer en paramètre
+        /// </summary>
+        /// <param name="IdEnchere">l'id de l'enchère rechercher</param>
+        /// <returns>L'enchère  correspondante</returns>
         public static Enchere GetEnchereSelected(string IdEnchere)
         {
             foreach (var enchere in CollEnchere)
