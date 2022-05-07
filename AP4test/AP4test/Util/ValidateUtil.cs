@@ -6,6 +6,11 @@ namespace AP4test.Util
 {
     public class ValidateUtil
     {
+        /// <summary>
+        /// Valide le format du nombre écrit par l'utilisateur
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>Retourne -1 si le nombre est incorrect ou le nombre multiplier par son diminutif </returns>
         public static int PriceFormatValidate(string number)
         {
             List<char> charlist = new List<char>();

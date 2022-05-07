@@ -11,7 +11,12 @@ namespace AP4test.Util
             thousand = 1000,
             million = 1000000,
             billion = 1000000000;
-
+        /// <summary>
+        /// Transforme un nombre avec son diminutif en nombre exemple : 500 et k = 500000
+        /// </summary>
+        /// <param name="numberparsed">Le nombre sans son diminutif</param>
+        /// <param name="diminutif">le diminutif (B m ou k)</param>
+        /// <returns>Le nombre convertis</returns>
         public static int FormatInPut(int numberparsed, char diminutif)
         {
             if (diminutif.Equals('k'))
@@ -25,7 +30,11 @@ namespace AP4test.Util
 
             return -1;
         }
-
+        /// <summary>
+        /// Formate in nombre en utilisant un diminutif correspondant a la taille du nombre
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static string FormatOutput(float number)
         {
             String format = "";
